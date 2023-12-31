@@ -22,4 +22,4 @@ excludes.txt、no_JP_sub_list.txtに名前が書かれたフォルダは無視�
 ### automata3
 使用しません。別ブランチ(en_sort)に隔離してあります。  
 VOフォルダ内の各フォルダのsub_en.csvの内容の順番を各接頭辞ごとにソートします。  
-実行すると全てのsub_en.csvに影響します。  
+実行すると全てのsub_en.csvに影響します。sub_en.csvファイルは、元プロジェクトのgitignore対象であることに注意してください。  
