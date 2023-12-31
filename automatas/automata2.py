@@ -1,14 +1,13 @@
+from module import ReadText, WriteTextLines, ReadCSV, WriteCSV, ReadJSON
 from pathlib import Path
 
 # VOの各フォルダの、sub_enの内容の順番を基準にして、sub_jpの内容の順番を変更するpythonプログラムです
 # 出力として各sub_jp.csvを書き換えます
 # excludes.txt、no_JP_sub_list.txtにリストアップされたフォルダは無視します
 
-dir = "./automata/"
-excludesname = "excludes"
-noSubname = "no_JP_sub_list"
-excludespath = f"{dir}/{excludesname}.txt"
-noSubList = f"{dir}/{noSubname}.txt"
+config = ReadJSON("config.json")
+excludespath = config["excludeFileName"]
+noSubList = config["noSubList"]
 
 def main():
     VO = Path("./VO")
@@ -47,34 +46,6 @@ def main():
                     subJpResult.append(subJp[o])
         WriteCSV(f"{folder}/sub_jp.csv", subJpResult)
     print("done")
-
-def ReadText(path: str):
-    with open(file=path, mode="r", encoding="utf-8") as file:
-        result = []
-        for line in file:
-            result.append(line.replace("\n", ""))
-        return result
-
-def WriteTextLines(path: str, text=""):
-    with open(file=path, mode="w", encoding="utf-8") as file:
-        for line in text:
-            file.write(f"{line}\n")
-
-def ReadCSV(path: str):
-    from csv import reader
-    result = []
-    with open(path, "r", encoding="UTF-8") as file:
-        row = reader(file)
-        for cells in row:
-            result.append(cells)
-        return result
-
-
-def WriteCSV(path: str, list2D: list[list[str]]):
-    from csv import writer
-    with open(path, "w", encoding="UTF-8") as file:
-        writer2 = writer(file, delimiter=",")
-        writer2.writerows(list2D)
 
 if __name__ == "__main__":
     main()
