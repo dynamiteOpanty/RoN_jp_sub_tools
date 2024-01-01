@@ -1,0 +1,1 @@
+git archive --output=./packages/output.zip HEAD ./automatas 
