@@ -1,12 +1,11 @@
-from module import ReadText, WriteTextLines, ReadJSON
+from backyard.module import ReadText, WriteTextLines, ReadJSON
 from pathlib import Path
 
 # VOの各フォルダのうち、sub_jp.csvファイルが無いフォルダの名前をリストアップするpythonプログラムです
 # 出力は"no_JP_sub_list.txtに書かれます
 # excludes.txtにリストアップされたフォルダは無視します
 
-config = ReadJSON("automatas/config.json")
-
+config = ReadJSON("./automatas/backyard/config.json")
 EXCLUDES_PATH = config["excludeFileName"]
 RESULT_LIST = config["noSubList"]
 

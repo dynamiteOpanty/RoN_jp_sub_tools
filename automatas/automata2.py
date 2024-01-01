@@ -1,23 +1,23 @@
-from module import ReadText, WriteTextLines, ReadCSV, WriteCSV, ReadJSON
+from backyard.module import ReadText, WriteTextLines, ReadCSV, WriteCSV, ReadJSON
 from pathlib import Path
 
 # VOの各フォルダの、sub_enの内容の順番を基準にして、sub_jpの内容の順番を変更するpythonプログラムです
 # 出力として各sub_jp.csvを書き換えます
 # excludes.txt、no_JP_sub_list.txtにリストアップされたフォルダは無視します
 
-config = ReadJSON("config.json")
-excludespath = config["excludeFileName"]
-noSubList = config["noSubList"]
+config = ReadJSON("./automatas/backyard/config.json")
+EXCLUDES_PATH = config["excludeFileName"]
+NOSUB_LIST = config["noSubList"]
 
 def main():
     VO = Path("./VO")
     try:
-        excludes = ReadText(excludespath)
+        excludes = ReadText(EXCLUDES_PATH)
     except:
-        WriteTextLines(excludespath)
+        WriteTextLines(EXCLUDES_PATH)
         excludes = ""
     try:
-        noSub = ReadText(noSubList)
+        noSub = ReadText(NOSUB_LIST)
     except:
         print("noSub list wasn't found")
         exit(-1)
