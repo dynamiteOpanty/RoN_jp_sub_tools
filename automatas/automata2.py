@@ -6,8 +6,8 @@ from pathlib import Path
 # excludes.txt、no_JP_sub_list.txtにリストアップされたフォルダは無視します
 
 config = ReadJSON("./automatas/backyard/config.json")
-EXCLUDES_PATH = config["excludeFileName"]
-NOSUB_LIST = config["noSubList"]
+EXCLUDES_PATH = f"./automatas/backyard/{config['excludeFileName']}.txt"
+NOSUB_LIST = f"./automatas/backyard/{config['noSubList']}.txt"
 
 def main():
     VO = Path("./VO")
