@@ -1,1 +1,0 @@
-git archive --output=./packages/ron_sub_jp_tools_HEAD.zip HEAD ./automatas 
