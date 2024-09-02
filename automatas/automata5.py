@@ -23,11 +23,9 @@ def main():
     for folder in folders:
         if folder in excludes:
             continue
-        for file in [file for file in folder.iterdir()][:5]:
+        for file in folder.iterdir():
             if file.name == "sub_jp.csv" or file.name == "sub_en.csv":
                 targetPath = Path(f"{RESULT_DIRECTORY}/{file.relative_to(VO)}").parent
-                print(file.relative_to(""))
-                print(targetPath)
                 if not targetPath.exists():
                     mkdir(targetPath)
                 shcopy(file.relative_to(""), targetPath)
