@@ -34,12 +34,16 @@ def main():
         except:
             print("error. either sub_jp or sub_en wasn't found.")
             exit(-1)
-        subEn = ReadCSV(subEnPath.absolute())
-        subJp = ReadCSV(subJpPath.absolute())
-        if not len(subEn) == len(subJp):
+        try:
+            subEn = ReadCSV(subEnPath.absolute())
+            subJp = ReadCSV(subJpPath.absolute())
+        except (UnicodeDecodeError):
+            print(f"\033[33mfatal: UnicodeDecodeError at {folder.name} !\033[0m")
+            exit(-1)
+        if not len(ReadText(subEnPath.absolute())) == len(ReadText(subJpPath)):
             print(f"\033[31mwrong range at {folder.name}!\033[0m")
             print(f"├─ JP len {len(subJp)}")
-            print(f"└─ JP len {len(subEn)}")
+            print(f"└─ EN len {len(subEn)}")
         discrepancy = []
         valid = True
         for lineEn in subEn:
