@@ -63,6 +63,7 @@ def main():
                     prefix = "├─"
                 print(f"{prefix} {line}")
             # print(f"└─ {len(discrepancy)}")
+    print("done!")
 
 if __name__ == "__main__":
     main()

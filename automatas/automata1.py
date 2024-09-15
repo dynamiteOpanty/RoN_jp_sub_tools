@@ -25,6 +25,7 @@ def main():
             print(f"no sub_jp.csv in {folder.name}")
             result.append(folder.name)
     WriteTextLines(RESULT_LIST, result)
+    print("done!")
 
 if __name__ == "__main__":
     main()

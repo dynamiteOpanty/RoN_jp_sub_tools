@@ -45,7 +45,7 @@ def main():
                 if subEn[i][0] == subJp[o][0]:
                     subJpResult.append(subJp[o])
         WriteCSV(f"{folder}/sub_jp.csv", subJpResult)
-    print("done")
+    print("done!")
 
 if __name__ == "__main__":
     main()
