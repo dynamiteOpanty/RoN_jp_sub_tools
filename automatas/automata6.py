@@ -40,13 +40,13 @@ def main():
         except (UnicodeDecodeError):
             print(f"\033[33mfatal: UnicodeDecodeError at {folder.name} !\033[0m")
             exit(-1)
-        if not len(ReadText(subEnPath.absolute())) == len(ReadText(subJpPath)):
+        if not len(ReadText(subEnPath.absolute())) == len(ReadText(subJpPath.absolute())):
             print(f"\033[31mwrong range at {folder.name}!\033[0m")
-            print(f"├─ JP len {len(subJp)}")
-            print(f"└─ EN len {len(subEn)}")
+            print(f"├─ JP len {len(ReadText(subEnPath.absolute()))}")
+            print(f"└─ EN len {len(ReadText(subJpPath.absolute()))}")
         discrepancy = []
         valid = True
-        for lineEn in subEn:
+        for lineEn in subEn[1:]:
             valid = False
             for lineJp in subJp:
                 if lineEn[0] == lineJp[0]:
