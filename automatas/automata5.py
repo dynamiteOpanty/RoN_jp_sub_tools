@@ -29,6 +29,7 @@ def main():
                 if not targetPath.exists():
                     mkdir(targetPath)
                 shcopy(file.relative_to(""), targetPath)
+    print("done!")
 
 
 if __name__ == "__main__":

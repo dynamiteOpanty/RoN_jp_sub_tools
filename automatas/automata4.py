@@ -14,7 +14,7 @@ def main():
             if file.name == "sub_ja.csv":
                 file.rename(f"{folder}/sub_jp.csv")
                 print("changed in " + folder.name)
-    print("finished!")
+    print("done!")
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,4 @@
-def ReadText(path: str):
+def ReadText(path: str) -> list[str]:
     with open(file=path, mode="r", encoding="utf-8") as file:
         result = []
         for line in file:
@@ -10,7 +10,7 @@ def WriteTextLines(path: str, text=""):
         for line in text:
             file.write(f"{line}\n")
 
-def ReadCSV(path: str):
+def ReadCSV(path: str) -> list[list[str]]:
     from csv import reader
     result = []
     with open(path, "r", encoding="UTF-8") as file:

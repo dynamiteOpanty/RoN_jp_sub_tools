@@ -35,7 +35,7 @@ def main():
             type(subJpPath)
             type(subEnPath)
         except:
-            print("error. either sub_jp or sub_en wasn't found.")
+            print(f"error. either sub_jp or sub_en at {folder.name} wasn't found.")
             exit(-1)
         subEn = ReadCSV(subEnPath.absolute())
         subJp = ReadCSV(subJpPath.absolute())
@@ -45,7 +45,7 @@ def main():
                 if subEn[i][0] == subJp[o][0]:
                     subJpResult.append(subJp[o])
         WriteCSV(f"{folder}/sub_jp.csv", subJpResult)
-    print("done")
+    print("done!")
 
 if __name__ == "__main__":
     main()
