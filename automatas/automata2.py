@@ -35,7 +35,7 @@ def main():
             type(subJpPath)
             type(subEnPath)
         except:
-            print("error. either sub_jp or sub_en wasn't found.")
+            print(f"error. either sub_jp or sub_en at {folder.name} wasn't found.")
             exit(-1)
         subEn = ReadCSV(subEnPath.absolute())
         subJp = ReadCSV(subJpPath.absolute())
