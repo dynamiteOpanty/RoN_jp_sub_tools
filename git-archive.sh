@@ -39,7 +39,8 @@ function git_archive() {
     readonly local REPOSITORY_DIRNAME=$(echo $(\basename ${REPOSITORY_DIR}) | sed s:^[\.]*::)
 
     # パス取得
-    readonly local REPOSITORY_PARENT_DIR=$(\dirname ${REPOSITORY_DIR})
+    readonly local REPOSITORY_PARENT_DIR="${REPOSITORY_DIR}/packages"
+    # readonly local REPOSITORY_PARENT_DIR=$(\dirname ${REPOSITORY_DIR})
 
     # ブランチ名取得
     readonly local BRANCH_NAME=$(echo $(\git symbolic-ref --short HEAD) | sed s:/:-:g)
