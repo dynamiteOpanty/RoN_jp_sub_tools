@@ -37,13 +37,13 @@ def main():
             type(subEnPath)
         except:
             print(f"error. either sub_jp or sub_en at {folder.name} wasn't found.")
-            exit(-1)
+            continue
         try:
             subEnCsv = ReadCSV(subEnPath.absolute())
             subJpCsv = ReadCSV(subJpPath.absolute())
         except (UnicodeDecodeError):
             print(f"\033[33mfatal: UnicodeDecodeError at {folder.name} !\033[0m")
-            exit(-1)
+            continue
         subEnText = ReadText(subEnPath.absolute())
         subJpText = ReadText(subJpPath.absolute())
         if not len(subEnText) == len(subJpText):
