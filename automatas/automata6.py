@@ -1,6 +1,10 @@
 from backyard.module import ReadJSON, ReadCSV, ReadText, WriteTextLines
 from pathlib import Path
 
+# sub_en、sub_jp間の齟齬を検出しリストアップします
+# sub_enとsub_jpの行数の齟齬、sub_enにあるがsub_jpに無いKeyが対象です
+# 出力結果はコンソールに表示されます
+
 config = ReadJSON("./automatas/backyard/config.json")
 EXCLUDES_PATH = f"./automatas/backyard/{config['excludeFileName']}.txt"
 NOSUB_LIST = f"./automatas/backyard/{config['noSubList']}.txt"

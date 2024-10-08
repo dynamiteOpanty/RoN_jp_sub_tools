@@ -1,6 +1,7 @@
 from pathlib import Path
 
 # VOの各フォルダの、sub_ja.csvをsub_jp.csvにリネームします
+# Home invasionリリースにより字幕が表示されなくなった問題に対処します
 # ReadyOrNot/Contents/ ディレクトリの中に配置して実行してください
 
 def main():
