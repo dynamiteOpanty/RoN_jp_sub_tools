@@ -1,6 +1,8 @@
 # https://qiita.com/ukaznil/items/e09b7899758c991ba176
 
+VERSION=$1
 function git_archive() {
+
     # 現在の場所
     readonly local CURR_DIR=$(\pwd)
 
@@ -39,7 +41,8 @@ function git_archive() {
     readonly local REPOSITORY_DIRNAME=$(echo $(\basename ${REPOSITORY_DIR}) | sed s:^[\.]*::)
 
     # パス取得
-    readonly local REPOSITORY_PARENT_DIR=$(\dirname ${REPOSITORY_DIR})
+    readonly local REPOSITORY_PARENT_DIR="${REPOSITORY_DIR}/packages"
+    # readonly local REPOSITORY_PARENT_DIR=$(\dirname ${REPOSITORY_DIR})
 
     # ブランチ名取得
     readonly local BRANCH_NAME=$(echo $(\git symbolic-ref --short HEAD) | sed s:/:-:g)
@@ -48,8 +51,9 @@ function git_archive() {
     readonly local HASH=$(\git rev-parse --short=7 HEAD)
 
     # 納品!!
-    readonly local ZIP_NAME="${REPOSITORY_PARENT_DIR}/${REPOSITORY_DIRNAME}-${BRANCH_NAME}-${HASH}.zip"
-    \git archive --format=zip HEAD >${ZIP_NAME} && {
+    echo $VERSION
+    local ZIP_NAME="${REPOSITORY_PARENT_DIR}/ron_sub_jp_tools-v${VERSION}.zip"
+    \git archive --format=zip --output=${ZIP_NAME} HEAD ./automatas && {
         echo '#========#'
         echo '# Result #'
         echo '#========#'

@@ -4,6 +4,7 @@ from shutil import copy as shcopy
 from pathlib import Path
 
 # VOの各フォルダのsub_jp.csv、sub_en.csvのみのコピーを作成します
+# 実行結果はautomatas/フォルダ内にVOという名前で出力されます
 
 config = ReadJSON("./automatas/backyard/config.json")
 EXCLUDES_PATH = f"./automatas/backyard/{config['excludeFileName']}.txt"
